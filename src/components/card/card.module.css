@@ -64,6 +64,12 @@
   z-index: 2;
   position: relative;
 }
+
+.img{
+  height: inherit;
+  width: auto;
+}
+
 .item_date {
   font-weight: bold;
   color: #f9b234;

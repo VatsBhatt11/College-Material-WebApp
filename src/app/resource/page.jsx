@@ -1,21 +1,17 @@
 import Card from "@/components/card/Card";
-import styles from "./resource.module.css"
+import styles from "./resource.module.css";
+import { getFiles } from "@/lib/data";
 
-const ResourcePage = () => {
+const ResourcePage = async () => {
+  const files = await getFiles();
+
   return (
     <div className={styles.container}>
-      <div className={styles.card}>
-        <Card />
-      </div>
-      <div className={styles.card}>
-        <Card />
-      </div>
-      <div className={styles.card}>
-        <Card />
-      </div>
-      <div className={styles.card}>
-        <Card />
-      </div>
+      {files.map((file) => (
+        <div className={styles.card} key={file.id}>
+          <Card file={file} />
+        </div>
+      ))}
     </div>
   );
 };

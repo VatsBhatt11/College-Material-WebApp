@@ -1,20 +1,20 @@
 import styles from "./card.module.css"
 
-const Card = () => {
+const Card = ({file}) => {
   return (
     <div className={styles.container}>
       <div className={styles.courses_box}>
         <div className={styles.courses_item}>
-          <a href="#" className={styles.item_link}>
+          <a href={file.filePath} className={styles.item_link} download>
             <div className={styles.item_bg}></div>
 
             <div className={styles.item_title}>
-              UI/Web&amp;Graph design for teenagers 11-17&#160;years old
+              <h1>{file.fileName}</h1>
             </div>
 
             <div className={styles.item_datebox}>
-              Start:
-              <span className={styles.item_date}>04.11.2022</span>
+              Uploaded at: 
+              <span className={styles.item_date}>{file.createdAt?.toString().slice(4, 16)}</span>
             </div>
           </a>
         </div>
