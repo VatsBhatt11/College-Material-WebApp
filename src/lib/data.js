@@ -15,6 +15,38 @@ import { unstable_noStore as noStore } from "next/cache";
 //   { id: 4, title: "Post 4", body: "......", userId: 2 },
 // ];
 
+// import { GridFSBucket, ObjectId } from 'mongodb';
+// import { getClient } from './mongodb';
+
+// export const getFiles = async () => {
+//   try {
+//     const client = await getClient();
+//     const db = client.db();
+//     const bucket = new GridFSBucket(db);
+//     const files = await bucket.find().toArray();
+//     return files;
+//   } catch (err) {
+//     console.log(err);
+//     throw new Error("Failed to fetch files!");
+//   }
+// };
+
+// export const getFile = async (fileId) => {
+//   try {
+//     const client = await getClient();
+//     const db = client.db();
+//     const bucket = new GridFSBucket(db);
+//     const file = await bucket.find({ _id: new ObjectId(fileId) }).next();
+//     return file;
+//   } catch (err) {
+//     console.log(err);
+//     throw new Error("Failed to fetch file!");
+//   }
+// };
+
+// Implementing CRUD operations for users is not affected by GridFS, so you can keep them unchanged.
+
+
 export const getFiles = async () => {
   try {
     connectToDb();
