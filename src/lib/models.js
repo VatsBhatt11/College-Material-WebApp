@@ -34,9 +34,9 @@ const fileSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  filePath: {
-    type: String,
-  },
+  // filePath: {
+  //   type: String,
+  // },
   //   fileType: {
   //     type: String,
   //     required: true

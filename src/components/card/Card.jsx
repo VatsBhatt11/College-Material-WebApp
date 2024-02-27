@@ -5,7 +5,7 @@ const Card = ({file}) => {
     <div className={styles.container}>
       <div className={styles.courses_box}>
         <div className={styles.courses_item}>
-          <a href={file.filePath} className={styles.item_link} download>
+          <a href="#" className={styles.item_link}>
             <div className={styles.item_bg}></div>
 
             <div className={styles.item_title}>

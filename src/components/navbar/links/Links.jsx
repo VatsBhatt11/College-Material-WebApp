@@ -1,40 +1,41 @@
 "use client";
 
-import Link from "next/link";
-import styles from "./links.module.css";
-import NavLink from "@/components/navbar/links/navLink/navLink";
 import { useState } from "react";
+import styles from "./links.module.css";
+import NavLink from "./navLink/navLink";
 import Image from "next/image";
+import { handleLogout } from "@/lib/action";
 
-const Links = () => {
+const links = [
+  {
+    title: "Homepage",
+    path: "/",
+  },
+  {
+    title: "Resource",
+    path: "/resource",
+  },
+];
+
+const Links = ({session}) => {
   const [open, setOpen] = useState(false);
 
-  const links = [
-    {
-      title: "HomePage",
-      path: "/",
-    },
-    {
-      title: "Resource",
-      path: "/resource",
-    },
-  ];
-
-  const session = true;
-  const isAdmin = true;
+  // TEMPORARY
+  // const session = true;
+  // const isAdmin = true;
 
   return (
     <div className={styles.container}>
       <div className={styles.links}>
         {links.map((link) => (
-          <NavLink item={link} key={link.title}>
-            {link.title}
-          </NavLink>
+          <NavLink item={link} key={link.title} />
         ))}
-        {session ? (
+        {session?.user ? (
           <>
-            {isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
-            <button className={styles.logOut}>Logout</button>
+            {session.user?.isAdmin && <NavLink item={{ title: "Admin", path: "/admin" }} />}
+            <form action={handleLogout}>
+              <button className={styles.logout}>Logout</button>
+            </form>
           </>
         ) : (
           <NavLink item={{ title: "Login", path: "/login" }} />
